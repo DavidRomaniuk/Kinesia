@@ -1,0 +1,6 @@
+﻿namespace Kinesia.Gestion.MultiTenancy.HostDashboard.Dto
+{
+    public class GetEditionTenantStatisticsInput : DashboardInputBase
+    {
+    }
+}
