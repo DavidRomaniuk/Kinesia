@@ -22,3 +22,4 @@ aspnet-core/src/Kinesia.Gestion.Web.Mvc/healthchecksdb
 # Ingore excel backup of audit logs
 aspnet-core/src/Kinesia.Gestion.Web.Mvc/App_Data/AuditLogsBackups/*
 aspnet-core/src/Kinesia.Gestion.Web.Host/App_Data/AuditLogsBackups/*
+/angular/yarn.lock
