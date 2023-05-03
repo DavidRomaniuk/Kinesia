@@ -1,4 +1,5 @@
-﻿import { Component, OnInit, Injector, Input, ViewChild, OnDestroy, AfterViewInit, Injectable, InjectionToken } from '@angular/core';
+﻿/* eslint-disable @typescript-eslint/member-ordering */
+import { Component, OnInit, Injector, Input, ViewChild, OnDestroy, AfterViewInit, Injectable, InjectionToken } from '@angular/core';
 import { AppComponentBase } from '@shared/common/app-component-base';
 import { DashboardViewConfigurationService } from './dashboard-view-configuration.service';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
@@ -66,7 +67,7 @@ export class CustomizableDashboardComponent extends AppComponentBase implements 
     renamePageInput = '';
     addPageInput = '';
 
-    widgetSubjects: { [key: string]: { handler: WidgetOnResizeEventHandler, injector: Injector } } = {};
+    widgetSubjects: { [key: string]: { handler: WidgetOnResizeEventHandler; injector: Injector } } = {};
 
     myinjector: Injector;
 
@@ -538,7 +539,7 @@ export class CustomizableDashboardComponent extends AppComponentBase implements 
 
     createWidgetSubjects() {
         for (let i = 0; i < this.userDashboard.pages.length; i++) {
-            var page = this.userDashboard.pages[i];
+            let page = this.userDashboard.pages[i];
             for (let i = 0; i < page.widgets.length; i++) {
                 const widget = page.widgets[i];
                 this.createWidgetSubject(widget.guid);
@@ -547,13 +548,13 @@ export class CustomizableDashboardComponent extends AppComponentBase implements 
     }
 
     createWidgetSubject(guid: string) {
-        var handler = new WidgetOnResizeEventHandler();
+        let handler = new WidgetOnResizeEventHandler();
         this.widgetSubjects[guid] = {
             handler,
             injector: Injector.create({
                 providers: [{ provide: WIDGETONRESIZEEVENTHANDLERTOKEN, useValue: handler }],
                 parent: this._injector
             })
-        }
+        };
     }
 }
